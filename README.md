@@ -1,3 +1,7 @@
+# Install
+This is a python 3 verson of [Rupy's GCCA](https://github.com/rupy/GCCA).
+Install: `pip install git+https://github.com/rjadr/GCCA`
+
 # GCCA
 
 This repository is implementation of Generalized Canonical Correlation Analysis(GCCA).
@@ -37,7 +41,7 @@ h5py==2.4.0
 ## Usage of CCA
 
 ```python
-from cca import CCA
+from gcca.cca import CCA
 import logging
 import numpy as np
 
@@ -68,7 +72,7 @@ cca.plot_pcca_result()
 ## Usage of GCCA
 
 ```python
-from gcca import GCCA
+from gcca.gcca import GCCA
 import logging
 import numpy as np
 
