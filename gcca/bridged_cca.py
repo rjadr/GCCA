@@ -3,10 +3,10 @@
 
 __author__ = 'rupy'
 
-if __name__ == '__main__':
-    from gcca import GCCA
-else:
+try:
     from .gcca import GCCA
+except:
+    from gcca import GCCA
 import numpy as np
 import logging
 from sklearn.datasets import load_digits
