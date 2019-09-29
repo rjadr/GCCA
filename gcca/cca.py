@@ -3,7 +3,7 @@
 
 __author__ = 'rupy'
 
-from gcca import GCCA
+from .gcca import GCCA
 import numpy as np
 import logging
 import os
@@ -36,7 +36,7 @@ class CCA(GCCA):
         self.logger.info("normalizing")
         x_norm_list = [ self.normalize(x) for x in x_list]
 
-        d_list = [0] + [sum([len(x.T) for x in x_list][:i + 1]) for i in xrange(data_num)]
+        d_list = [0] + [sum([len(x.T) for x in x_list][:i + 1]) for i in range(data_num)]
         cov_mat = self.calc_cov_mat(x_norm_list)
         cov_mat = self.add_regularization_term(cov_mat)
         c_00 = cov_mat[0][0]
@@ -106,7 +106,7 @@ class CCA(GCCA):
         # begin plot
         plt.figure()
 
-        color_list = colors.cnames.keys()
+        color_list = list(colors.cnames.keys())
         plt.subplot(row_num, col_num, 1)
         plt.plot(self.z_list[0][:, 0], self.z_list[0][:, 1], c=color_list[0], marker='.', ls=' ')
         plt.title("Z_0(CCA)")

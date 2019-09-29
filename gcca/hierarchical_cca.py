@@ -5,8 +5,8 @@ __author__ = 'rupy'
 
 import numpy as np
 
-from gcca import GCCA
-from cca import CCA
+from .gcca import GCCA
+from .cca import CCA
 import logging
 import h5py
 
@@ -116,36 +116,36 @@ class HierarchicalCCA(GCCA):
             self.cca1.cov_mat = [[np.array([]) for col in range(self.cca1.data_num)] for row in range(self.cca1.data_num)]
             self.cca2.cov_mat = [[np.array([]) for col in range(self.cca2.data_num)] for row in range(self.cca2.data_num)]
 
-            for i in xrange(self.cca1.data_num):
-                for j in xrange(self.cca1.data_num):
+            for i in range(self.cca1.data_num):
+                for j in range(self.cca1.data_num):
                     self.cca1.cov_mat[i][j] = f["cov_mat1/" + str(i) + "_" + str(j)]
 
-            for i in xrange(self.cca2.data_num):
-                for j in xrange(self.cca2.data_num):
+            for i in range(self.cca2.data_num):
+                for j in range(self.cca2.data_num):
                     self.cca2.cov_mat[i][j] = f["cov_mat2/" + str(i) + "_" + str(j)]
 
             self.cca1.h_list = [None] * self.data_num
-            for i in xrange(self.cca1.data_num):
+            for i in range(self.cca1.data_num):
                 self.cca1.h_list[i] = f["h_list1/" + str(i)].value
             self.cca2.h_list = [None] * self.data_num
-            for i in xrange(self.cca2.data_num):
+            for i in range(self.cca2.data_num):
                 self.cca2.h_list[i] = f["h_list2/" + str(i)].value
             self.cca1.eig_vals = f["eig_vals1"].value
             self.cca2.eig_vals = f["eig_vals2"].value
 
             if "z_list1" in f:
                 self.cca1.z_list = [None] * self.cca2.data_num
-                for i in xrange(self.cca1.data_num):
+                for i in range(self.cca1.data_num):
                     self.cca1.z_list[i] = f["z_list1/" + str(i)].value
 
             if "z_list2" in f:
                 self.cca2.z_list = [None] * self.cca2.data_num
-                for i in xrange(self.cca2.data_num):
+                for i in range(self.cca2.data_num):
                     self.cca2.z_list[i] = f["z_list2/" + str(i)].value
 
             if "z_list_all" in f:
                 self.z_list = [None] * self.data_num
-                for i in xrange(self.data_num):
+                for i in range(self.data_num):
                     self.z_list[i] = f["z_list_all/" + str(i)].value
 
             f.flush()

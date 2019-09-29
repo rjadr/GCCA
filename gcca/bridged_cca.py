@@ -3,7 +3,7 @@
 
 __author__ = 'rupy'
 
-from gcca import GCCA
+from .gcca import GCCA
 import numpy as np
 import logging
 from sklearn.datasets import load_digits
@@ -33,8 +33,8 @@ class BridgedCCA(GCCA):
         p0_norm_list = [ self.normalize(x) for x in p0_list]
         p1_norm_list = [ self.normalize(x) for x in p1_list]
 
-        p0_d_list = [0] + [sum([len(x.T) for x in p0_list][:i + 1]) for i in xrange(p0_num)]
-        p1_d_list = [0] + [sum([len(x.T) for x in p1_list][:i + 1]) for i in xrange(p1_num)]
+        p0_d_list = [0] + [sum([len(x.T) for x in p0_list][:i + 1]) for i in range(p0_num)]
+        p1_d_list = [0] + [sum([len(x.T) for x in p1_list][:i + 1]) for i in range(p1_num)]
 
         p0_cov_mat = self.calc_cov_mat(p0_norm_list)
         p0_cov_mat = self.add_regularization_term(p0_cov_mat)
@@ -47,7 +47,7 @@ class BridgedCCA(GCCA):
         x1_var += self.reg_param * np.average(np.diag(x1_var)) * np.eye(x1_var.shape[0])
 
         x_list = [x0_pair0, x1_all, x2_pair1]
-        d_list = [0] + [sum([len(x.T) for x in x_list][:i + 1]) for i in xrange(data_num)]
+        d_list = [0] + [sum([len(x.T) for x in x_list][:i + 1]) for i in range(data_num)]
 
         c00 = p0_cov_mat[0][0]
         c01 = p0_cov_mat[0][1]
