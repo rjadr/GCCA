@@ -1,5 +1,6 @@
 # Install
 This is a python 3 verson of [Rupy's GCCA](https://github.com/rupy/GCCA).
+
 Install: `pip install git+https://github.com/rjadr/GCCA`
 
 # GCCA
