@@ -3,7 +3,7 @@
 
 __author__ = 'rupy'
 
-from .gcca import GCCA
+from gcca import GCCA
 import numpy as np
 import logging
 import os
