@@ -4,13 +4,12 @@
 __author__ = 'rupy'
 
 import numpy as np
-
-if __name__ == '__main__':
-    from gcca import GCCA
-    from .cca import CCA
-else:
+try:
     from .gcca import GCCA
     from .cca import CCA
+except:
+    from gcca import GCCA
+    from cca import CCA
 import logging
 import h5py
 
