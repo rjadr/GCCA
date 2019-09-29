@@ -3,7 +3,10 @@
 
 __author__ = 'rupy'
 
-from gcca import GCCA
+if __name__ == '__main__':
+    from gcca import GCCA
+else:
+    .gcca import GCCA
 import numpy as np
 import logging
 import os
